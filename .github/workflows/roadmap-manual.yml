@@ -2,10 +2,23 @@ name: Executar Roadmap Manual
 
 "on":
   workflow_dispatch:
+    inputs:
+      sprint:
+        description: "Nome da sprint"
+        required: true
+        type: string
+
+permissions:
+  contents: read
 
 jobs:
   executar-tarefa:
     runs-on: ubuntu-latest
     steps:
-      - name: Ola
-        run: echo "Funcionou"
+      - name: Mostrar sprint
+        run: echo "Sprint escolhida: ${{ github.event.inputs.sprint }}"
+
+      - name: Confirmar token
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: echo "Token carregado com sucesso"
