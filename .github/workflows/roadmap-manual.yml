@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Mostrar sprint
-        run: echo "Sprint escolhida: ${{ github.event.inputs.sprint }}"
+          run: echo "Sprint escolhida: ${{ github.event.inputs.sprint }}"
