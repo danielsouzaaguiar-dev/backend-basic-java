@@ -1,0 +1,11 @@
+name: Executar Roadmap Manual
+
+on:
+  workflow_dispatch:
+
+jobs:
+  executar-tarefa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Olá Mundo
+        run: echo "O workflow manual foi executado com sucesso!"
