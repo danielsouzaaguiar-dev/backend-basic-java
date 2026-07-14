@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Mostrar sprint
-        run: echo "Sprint escolhida:${{ github.event.inputs.sprint }}"
+        run: echo "Sprint escolhida: ${{ github.event.inputs.sprint }}"
 
       - name: Confirmar token
         env:
@@ -28,3 +28,12 @@ jobs:
             echo "Erro: Token nao foi carregado"
             exit 1
           fi
+
+      - name: Testar chamada GraphQL
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -X POST https://api.github.com/graphql \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"query":"query { viewer { login } }"}'
