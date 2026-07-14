@@ -1,5 +1,4 @@
 name: Executar Roadmap Manual
-
 on:
   workflow_dispatch:
     inputs:
@@ -7,7 +6,6 @@ on:
         description: "Nome da sprint"
         required: true
         type: string
-
 jobs:
   executar-tarefa:
     runs-on: ubuntu-latest
