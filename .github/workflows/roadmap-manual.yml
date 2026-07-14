@@ -8,18 +8,9 @@ on:
         required: true
         type: string
 
-permissions:
-  contents: read
-
 jobs:
   executar-tarefa:
     runs-on: ubuntu-latest
     steps:
       - name: Mostrar sprint
         run: echo "Sprint escolhida: ${{ github.event.inputs.sprint }}"
-
-      - name: Confirmar token
-        run: echo "Token carregado com sucesso"
-
-      - name: Testar GraphQL
-        run: echo "Teste temporario"
