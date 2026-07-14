@@ -1,6 +1,6 @@
 name: Executar Roadmap Manual
 
-"on":
+on:
   workflow_dispatch:
     inputs:
       sprint:
@@ -21,4 +21,10 @@ jobs:
       - name: Confirmar token
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: echo "Token carregado com sucesso"
+        run: |
+          if [ -n "$GH_TOKEN" ]; then
+            echo "Token carregado com sucesso"
+          else
+            echo "Erro: Token não foi carregado"
+            exit 1
+          fi
