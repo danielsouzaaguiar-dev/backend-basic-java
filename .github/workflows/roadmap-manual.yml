@@ -18,8 +18,7 @@ jobs:
       - name: Mostrar sprint
         run: echo "Sprint escolhida: ${{ github.event.inputs.sprint }}"
 
-      - name: Testar token
+      - name: Confirmar token
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "Token disponível para autenticação"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: echo "Token carregado com sucesso"
