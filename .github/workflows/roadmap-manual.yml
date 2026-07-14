@@ -1,9 +1,13 @@
 name: Executar Roadmap Manual
 on:
   workflow_dispatch:
+    inputs:
+      sprint:
+        description: Nome da sprint
+        required: true
 jobs:
   executar-tarefa:
     runs-on: ubuntu-latest
     steps:
-      - name: Mostrar mensagem
-        run: echo Funcionou
+      - name: Mostrar sprint
+        run: echo "Sprint escolhida: ${{ github.event.inputs.sprint }}"
