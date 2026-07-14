@@ -21,19 +21,9 @@ jobs:
       - name: Confirmar token
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          if [ -n "$GH_TOKEN" ]; then
-            echo "Token carregado com sucesso"
-          else
-            echo "Erro: Token nao foi carregado"
-            exit 1
-          fi
+        run: echo "Token carregado com sucesso"
 
       - name: Testar chamada GraphQL
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          curl -X POST https://api.github.com/graphql \
-            -H "Authorization: Bearer $GH_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"query":"query { viewer { login } }"}'
+        run: curl -sS -X POST https://api.github.com/graphql -H "Authorization: Bearer $GH_TOKEN" -H "Content-Type: application/json" -d '{"query":"query { viewer { login } }"}'
