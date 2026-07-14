@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Mostrar sprint
-        run: echo "Sprint escolhida: ${{ github.event.inputs.sprint}}"
+        run: echo "Sprint escolhida:${{ github.event.inputs.sprint }}"
 
       - name: Confirmar token
         env:
@@ -25,6 +25,6 @@ jobs:
           if [ -n "$GH_TOKEN" ]; then
             echo "Token carregado com sucesso"
           else
-            echo "Erro: Token não foi carregado"
+            echo "Erro: Token nao foi carregado"
             exit 1
           fi
