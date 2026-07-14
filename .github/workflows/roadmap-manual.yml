@@ -8,9 +8,18 @@ on:
         required: true
         type: string
 
+permissions:
+  contents: read
+
 jobs:
   executar-tarefa:
     runs-on: ubuntu-latest
     steps:
-      - name: Olá Mundo
+      - name: Mostrar sprint
         run: echo "Sprint escolhida: ${{ github.event.inputs.sprint }}"
+
+      - name: Testar token
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Token disponível para autenticação"
